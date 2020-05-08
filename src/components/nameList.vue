@@ -26,7 +26,7 @@
                      <button
                     type="button"
                     class="btn btn-danger mr-2"
-                    v-on:click="deleteName(index,name._id)"
+                    v-on:click="deleteName(index,name.id)"
                   >ลบ</button>
                   <button
                     type="button"
@@ -55,7 +55,7 @@
                     <button
                     type="button"
                     class="btn btn-success mr-2"
-                    v-on:click="editName(name._id)"
+                    v-on:click="editName(name.id)"
                   >ยืนยัน</button>
                   <button
                     type="button"
@@ -92,8 +92,8 @@ export default {
         fetchName() {
             this.$store.dispatch("fetchName");
         },
-        deleteName(index, _id) {
-            let payload = { index: index, _id: _id };
+        deleteName(index, id) {
+            let payload = { index: index, _id: id };
             this.$store.dispatch("deleteName", payload);
         },
         openEdit(index, name) {
@@ -106,10 +106,10 @@ export default {
             this.name = "";
             this.position = "";
         },
-        editName(_id) {            
+        editName(id) {            
             let payload = {
                 index: this.editIndex,
-                _id: _id,
+                _id: id,
                 name: this.name,
                 position: this.position
             };

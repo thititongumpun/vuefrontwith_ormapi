@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import Axios from "axios";
 
-let mongo_api = "http://localhost:5000/api/name/"
+let mongo_api = "https://api-thiti.herokuapp.com/api/name/"
 
 Vue.use(Vuex);
 
@@ -52,7 +52,7 @@ export const store = new Vuex.Store({
               .catch(err => alert(err));
           },
           async editName({ commit }, payload) {
-            await Axios.post(mongo_api + payload._id, payload)            
+            await Axios.put(mongo_api + payload._id, payload)            
               .then(() => commit("editName", { payload }))
               .catch(err => alert(err+" error in API"));
           }
