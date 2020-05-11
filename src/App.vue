@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- ปุ่มสำหรับกำหนดค่า Router !!! header  -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand mr-auto">รายชื่อ</a>
       <button
@@ -16,27 +15,22 @@
       </button>
       <div class="collapse navbar-collapse" id="navContent">
         <ul class="navbar-nav ml-auto">
-          <!-- เรียก Router -->
           <li class="nav-item">
-            <router-link :to="{name: 'nameList'}" class="nav-link">รายชื่อ</router-link>
+            <router-link :to="{name: 'NameList'}" class="nav-link">รายชื่อพนักงาน</router-link>
           </li>
           <li class="nav-item">
-            <router-link :to="{name: 'createName'}" class="nav-link">เพิ่มชื่อ</router-link>
+            <router-link :to="{name: 'CreateName'}" class="nav-link">เพิ่มรายชื่อ</router-link>
           </li>
         </ul>
       </div>
     </nav>
-
-    <!-- แสดงผลของ Router ที่เลือก  -->
     <router-view></router-view>
   </div>
 </template>
 
-
-
-
+// ทำการประกาศ store โดยต้องประกาศ path ให้ตรงกับ store.js
 <script>
-import {store} from './store/store.js';
+import { store } from "./store/store";
 export default {
   store
 };
